@@ -1,5 +1,5 @@
 
-const delegate = require('func-delegate');
+const validator = require('func-args-validator');
 const _ = require('lodash');
 
 const getValue = (ctx, obj) => {
@@ -214,11 +214,11 @@ module.exports = (rest) => {
   }];
 
   rest.helper.assert = {
-    equal: delegate(equal, equalSchemas),
-    notEqual: delegate(notEqual, equalSchemas),
-    has: delegate(has, hasSchemas),
-    notHas: delegate(notHas, hasSchemas),
-    exists: delegate(exists, existsSchemas),
+    equal: validator(equal, equalSchemas),
+    notEqual: validator(notEqual, equalSchemas),
+    has: validator(has, hasSchemas),
+    notHas: validator(notHas, hasSchemas),
+    exists: validator(exists, existsSchemas),
   };
 
   return rest.helper.assert;
